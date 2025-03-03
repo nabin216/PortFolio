@@ -1,0 +1,14 @@
+/* TEAM */
+	Developer: Asadur Zaman Nabin
+	Contact: your-email@example.com
+	Twitter: @your_twitter_handle
+	GitHub: https://github.com/nabin216
+	LinkedIn: https://www.linkedin.com/in/your-linkedin
+	From: Bangladesh
+
+/* SITE */
+	Last update: 2024/03/03
+	Language: English
+	Doctype: HTML5
+	IDE: Visual Studio Code
+	Technologies: React, TypeScript, Tailwind CSS, Framer Motion 

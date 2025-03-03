@@ -1,6 +1,6 @@
 {
-  "short_name": "Asadur Portfolio",
-  "name": "Asadur Zaman Nabin Portfolio",
+  "short_name": "Nabin's Portfolio",
+  "name": "Nabin's Portfolio - Full Stack Developer & ML Engineer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +10,31 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#0f172a",
-  "background_color": "#ffffff"
+  "theme_color": "#FAA500",
+  "background_color": "#ffffff",
+  "description": "Personal portfolio showcasing full-stack development, machine learning projects, and software engineering experience.",
+  "dir": "ltr",
+  "lang": "en-US",
+  "orientation": "any",
+  "categories": ["portfolio", "development", "technology"],
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "label": "Homepage of Nabin's Portfolio"
+    }
+  ]
 }

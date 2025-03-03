@@ -1,3 +1,15 @@
 # https://www.robotstxt.org/robotstxt.html
+# Allow all web crawlers
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow specific directories that don't need indexing
+Disallow: /static/js/
+Disallow: /static/css/
+Disallow: /static/media/
+
+# Crawl delay to prevent server overload
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://nabin216.github.io/sitemap.xml
