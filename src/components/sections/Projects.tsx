@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { IconWrapper } from '../../utils/IconWrapper';
+import ProjectImage1 from "../../assets/images/smart_india_project.png"
+import ProjectImage2 from "../../assets/images/DIAGRAM - ENIGMA HUNTERS_page-0001.jpg"
+import ProjectImage3 from "../../assets/images/snr_online.png"
+
 
 interface Project {
   id: number;
@@ -19,18 +23,18 @@ const projects: Project[] = [
     id: 1,
     title: "Chat Messenger Decryption Tool",
     description: "A recovery and decryption tool for WeChat, which employs numerous layers of security for both local device storage and data transport. Created as part of the national hackathon for Kavach-2023.",
-    image: "/projects/chat-decryption.jpg",
+    image: ProjectImage2,
     technologies: ["Python", "Cryptography", "Reverse Engineering", "Data Analysis"],
-    githubLink: "https://github.com/nabin216/chat-decryption",
+    githubLink: "https://github.com/nabin216/-Chat-messenger-decryption-tool/tree/main",
     category: "cybersecurity"
   },
   {
     id: 2,
     title: "Blockchain Certificate Validation System",
     description: "Developed an online blockchain-based certificate generation and validation system to enhance security and authenticity for government-issued certificates. Created for the Smart India Hackathon 2024.",
-    image: "/projects/blockchain-certificate.jpg",
+    image: ProjectImage1,
     technologies: ["Blockchain", "Solidity", "React", "Node.js", "Web3.js"],
-    githubLink: "https://github.com/nabin216/blockchain-certificates",
+    githubLink: "https://github.com/nabin216/Smart-India-Hackathon-Project-2023",
     liveLink: "https://blockchain-certificates.vercel.app",
     category: "blockchain"
   },
@@ -49,17 +53,17 @@ const projects: Project[] = [
     description: "An instant grocery delivery application with features for ordering, tracking, and payment processing.",
     image: "/projects/zotpot.jpg",
     technologies: ["React Native", "Firebase", "Node.js", "Express", "MongoDB"],
-    liveLink: "https://zotpot.com",
+    liveLink: "https://zotpot.shop",
     category: "web"
   },
   {
     id: 5,
     title: "SSN Online Shop",
     description: "An e-commerce web application for Bangladesh with features for product browsing, cart management, and secure checkout.",
-    image: "/projects/ssn-shop.jpg",
+    image: ProjectImage3,
     technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
-    githubLink: "https://github.com/nabin216/ssn-shop",
-    liveLink: "https://ssn-shop.vercel.app",
+    githubLink: "https://github.com/nabin216/MERN-Stack-Ecommerce-web-app",
+    liveLink: "https://www.snronline.shop/",
     category: "web"
   },
   {
@@ -74,24 +78,43 @@ const projects: Project[] = [
 
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>('all');
+  const [visibleProjects, setVisibleProjects] = useState<number>(6);
   
   const filteredProjects = filter === 'all' 
     ? projects 
     : projects.filter(project => project.category === filter);
 
+  const displayedProjects = filteredProjects.slice(0, visibleProjects);
+  const hasMoreProjects = filteredProjects.length > visibleProjects;
+
+  const handleLoadMore = () => {
+    setVisibleProjects(prev => prev + 6);
+  };
+
+  // Reset visible projects when filter changes
+  React.useEffect(() => {
+    setVisibleProjects(6);
+  }, [filter]);
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-dark-background transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-bold text-primary mb-4">Featured Projects</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A selection of my recent work in web development, cybersecurity, and blockchain technology.
+        <div className="text-center mb-12">
+          <div className="inline-block">
+            <h2 className="heading-xl text-primary dark:text-white mb-4 relative">
+              Featured Projects
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="h-1 bg-primary dark:bg-accent absolute bottom-0 left-0"
+              ></motion.div>
+            </h2>
+          </div>
+          
+          <p className="text-content text-xl max-w-3xl mx-auto">
+            Explore my portfolio of web development, cybersecurity, and blockchain projects.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mt-8">
@@ -99,8 +122,8 @@ const Projects: React.FC = () => {
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-md transition-colors ${
                 filter === 'all' 
-                  ? 'bg-accent text-white' 
-                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                  ? 'bg-accent text-white dark:bg-dark-accent' 
+                  : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
               }`}
             >
               All Projects
@@ -109,8 +132,8 @@ const Projects: React.FC = () => {
               onClick={() => setFilter('web')}
               className={`px-4 py-2 rounded-md transition-colors ${
                 filter === 'web' 
-                  ? 'bg-accent text-white' 
-                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                  ? 'bg-accent text-white dark:bg-dark-accent' 
+                  : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
               }`}
             >
               Web Development
@@ -119,8 +142,8 @@ const Projects: React.FC = () => {
               onClick={() => setFilter('cybersecurity')}
               className={`px-4 py-2 rounded-md transition-colors ${
                 filter === 'cybersecurity' 
-                  ? 'bg-accent text-white' 
-                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                  ? 'bg-accent text-white dark:bg-dark-accent' 
+                  : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
               }`}
             >
               Cybersecurity
@@ -129,40 +152,44 @@ const Projects: React.FC = () => {
               onClick={() => setFilter('blockchain')}
               className={`px-4 py-2 rounded-md transition-colors ${
                 filter === 'blockchain' 
-                  ? 'bg-accent text-white' 
-                  : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                  ? 'bg-accent text-white dark:bg-dark-accent' 
+                  : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
               }`}
             >
               Blockchain
             </button>
           </div>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg overflow-hidden shadow-lg border border-gray-200 hover:shadow-xl transition-shadow"
+              className="flex flex-col h-full bg-white dark:bg-dark-secondary rounded-lg shadow-lg overflow-hidden"
             >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-center transition-transform hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-300 transform hover:scale-105"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = `https://via.placeholder.com/600x400?text=${encodeURIComponent(project.title)}`;
+                  }}
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="heading-small mb-2">{project.title}</h3>
+                <p className="text-content mb-4 flex-grow">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, i) => (
                     <span 
                       key={i} 
-                      className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-md"
+                      className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs px-2 py-1 rounded-md"
                     >
                       {tech}
                     </span>
@@ -174,7 +201,7 @@ const Projects: React.FC = () => {
                       href={project.githubLink} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-accent transition-colors"
+                      className="text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-dark-accent transition-colors"
                       aria-label={`GitHub repository for ${project.title}`}
                     >
                       <IconWrapper icon={FaGithub} className="h-6 w-6" />
@@ -185,7 +212,7 @@ const Projects: React.FC = () => {
                       href={project.liveLink} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-accent transition-colors"
+                      className="text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-dark-accent transition-colors"
                       aria-label={`Live demo for ${project.title}`}
                     >
                       <IconWrapper icon={FaExternalLinkAlt} className="h-5 w-5" />
@@ -196,6 +223,19 @@ const Projects: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {hasMoreProjects && (
+          <div className="flex justify-center mt-12">
+            <motion.button
+              onClick={handleLoadMore}
+              className="px-8 py-3 bg-[#FAA500] hover:bg-[#E69500] text-white font-semibold rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              See More Projects
+            </motion.button>
+          </div>
+        )}
       </div>
     </section>
   );

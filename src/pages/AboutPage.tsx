@@ -3,29 +3,17 @@ import Layout from '../components/layout/Layout';
 import About from '../components/sections/About';
 import { motion } from 'framer-motion';
 import AIChatbot from '../components/sections/AIChatbot';
+import ResearchHighlights from '../components/sections/ResearchHighlights';
 
 const AboutPage: React.FC = () => {
   return (
     <Layout>
-      <div className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-4xl font-bold text-primary mb-4">About Me</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Learn more about my background, skills, and journey in technology.
-            </p>
-          </motion.div>
-        </div>
-      </div>
       
       <About />
       
-      <div className="py-20 bg-white">
+      {/* <ResearchHighlights /> */}
+      
+      <div className="py-20 bg-white dark:bg-dark-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -34,8 +22,8 @@ const AboutPage: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-primary mb-4">My Journey</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="heading-large mb-4">My Journey</h2>
+            <p className="text-content text-xl max-w-3xl mx-auto">
               The path that led me to where I am today.
             </p>
           </motion.div>

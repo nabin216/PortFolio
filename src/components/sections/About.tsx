@@ -20,19 +20,19 @@ const About: React.FC = () => {
           className="text-center mb-16"
         >
           <div className="inline-block">
-            <h2 className="text-4xl font-bold mb-4 relative">
-              <span className="bg-gradient-to-r from-gradient-start to-gradient-end dark:from-dark-primary dark:to-dark-accent text-transparent bg-clip-text">About Me</span>
+            <h2 className="heading-xl mb-4 relative">
+              About Me
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: "100%" }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="h-1 bg-gradient-to-r from-gradient-start to-gradient-end absolute bottom-0 left-0"
-              ></motion.div>
+                className="h-1 bg-primary dark:bg-accent absolute bottom-0 left-0"
+              />
             </h2>
           </div>
-          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mt-6">
-            A passionate Computer Science student with expertise in Cybersecurity, Blockchain, and Full-Stack Development.
+          <p className="text-content text-xl max-w-3xl mx-auto">
+            I'm a passionate developer and researcher focused on creating innovative solutions at the intersection of AI, cybersecurity, and web development.
           </p>
         </motion.div>
 
@@ -48,7 +48,7 @@ const About: React.FC = () => {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-gradient-start to-gradient-end rounded-2xl opacity-50 blur group-hover:opacity-75 transition duration-300"></div>
             <div className="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl">
               <div className="flex items-center mb-6">
-                <div className="p-3 rounded-full bg-gradient-to-r from-gradient-start to-gradient-end text-white mr-4">
+                <div className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 text-primary dark:text-white mr-4">
                   <IconWrapper icon={FaGraduationCap} className="text-2xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-primary dark:text-white">Education</h3>
@@ -63,15 +63,15 @@ const About: React.FC = () => {
                 </li>
                 <li className="transform transition-transform duration-300 hover:translate-x-2">
                   <div className="border-l-4 border-gradient-mid pl-4">
-                    <p className="font-semibold text-lg text-primary dark:text-white">Higher Secondary School Certificate</p>
+                    <p className="font-semibold text-lg text-primary dark:text-white">Higher Secondary School Certificate-(Science)</p>
                     <p className="text-gray-600 dark:text-gray-300">Notre Dame College Mymensingh</p>
                     <p className="text-gradient-mid dark:text-gradient-mid font-medium">2020 | GPA: 5.0/5.0</p>
                   </div>
                 </li>
                 <li className="transform transition-transform duration-300 hover:translate-x-2">
                   <div className="border-l-4 border-gradient-end pl-4">
-                    <p className="font-semibold text-lg text-primary dark:text-white">Secondary School Certificate</p>
-                    <p className="text-gray-600 dark:text-gray-300">Barhatta C&P Govt. Pilot High School</p>
+                    <p className="font-semibold text-lg text-primary dark:text-white">Secondary School Certificate-(Science)</p>
+                    <p className="text-gray-600 dark:text-gray-300">Barhatta C.K.P Govt. Pilot High School</p>
                     <p className="text-gradient-end dark:text-gradient-end font-medium">2018 | GPA: 5.0/5.0</p>
                   </div>
                 </li>
@@ -90,7 +90,7 @@ const About: React.FC = () => {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-gradient-end to-gradient-start rounded-2xl opacity-50 blur group-hover:opacity-75 transition duration-300"></div>
             <div className="relative bg-white dark:bg-gray-800 p-8 rounded-xl shadow-xl">
               <div className="flex items-center mb-6">
-                <div className="p-3 rounded-full bg-gradient-to-r from-gradient-end to-gradient-start text-white mr-4">
+                <div className="p-3 rounded-full bg-gray-100 dark:bg-gray-700 text-primary dark:text-white mr-4">
                   <IconWrapper icon={FaLaptopCode} className="text-2xl" />
                 </div>
                 <h3 className="text-2xl font-bold text-primary dark:text-white">Technical Skills</h3>

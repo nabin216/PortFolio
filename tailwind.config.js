@@ -7,28 +7,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#4f46e5", // Indigo
-        secondary: "#7c3aed", // Violet
-        accent: "#ec4899", // Pink
+        primary: "#1e40af", // Deep blue
+        secondary: "#334155", // Slate
+        accent: "#0369a1", // Sky blue
         dark: {
-          primary: "#3730a3", // Darker Indigo
-          secondary: "#6d28d9", // Darker Violet
-          accent: "#db2777", // Darker Pink
+          primary: "#1e3a8a", // Darker blue
+          secondary: "#1f2937", // Dark gray
+          accent: "#0c4a6e", // Darker sky blue
           text: "#f3f4f6",
-          background: "#030712"
+          background: "#0f172a"
         },
         light: {
-          primary: "#4f46e5", // Indigo
-          secondary: "#7c3aed", // Violet
-          accent: "#ec4899", // Pink
+          primary: "#1e40af", // Deep blue
+          secondary: "#334155", // Slate
+          accent: "#0369a1", // Sky blue
           text: "#1e293b",
           background: "#f8fafc"
         },
-        gradient: {
-          start: "#4f46e5", // Indigo
-          mid: "#7c3aed", // Violet
-          end: "#ec4899", // Pink
-        }
+        // Removing gradient colors in favor of solid colors
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

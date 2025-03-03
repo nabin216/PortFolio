@@ -1,0 +1,38 @@
+/* Enhanced text visibility styles for headings */
+.heading-primary {
+  @apply text-primary dark:text-white font-bold;
+}
+
+.heading-secondary {
+  @apply text-secondary dark:text-gray-100 font-semibold;
+}
+
+.heading-xl {
+  @apply text-4xl md:text-5xl heading-primary;
+}
+
+.heading-large {
+  @apply text-3xl heading-primary;
+}
+
+.heading-medium {
+  @apply text-2xl heading-primary;
+}
+
+.heading-small {
+  @apply text-xl heading-primary;
+}
+
+.subheading {
+  @apply text-lg heading-secondary;
+}
+
+/* Enhanced text visibility for paragraphs */
+.text-content {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+/* Make sure links are always visible */
+.text-link {
+  @apply text-primary dark:text-blue-400 hover:underline;
+} 

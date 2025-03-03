@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import './styles/common.css';
 
 @layer base {
   /* Default light mode styles */
@@ -20,6 +21,36 @@
   /* Dark mode styles */
   .dark body {
     @apply bg-dark-background text-dark-text;
+  }
+  
+  /* Enhanced heading visibility */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900 dark:text-white;
+  }
+  
+  /* Ensure text is visible in dark mode */
+  .dark .text-gray-600 {
+    @apply text-gray-300;
+  }
+  
+  .dark .text-gray-700 {
+    @apply text-gray-200;
+  }
+  
+  .dark .text-gray-800 {
+    @apply text-gray-100;
+  }
+  
+  .dark .text-gray-900 {
+    @apply text-white;
+  }
+  
+  .dark .text-primary {
+    @apply text-gray-100;
+  }
+  
+  .dark .text-secondary {
+    @apply text-gray-200;
   }
 }
 

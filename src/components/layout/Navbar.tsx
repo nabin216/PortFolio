@@ -13,60 +13,28 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <Link to="/" className="text-white text-xl font-bold">
+              <Link to="/" className="text-white font-bold text-xl">
                 Asadur Zaman Nabin
               </Link>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  to="/"
-                  className="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/about"
-                  className="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  About
-                </Link>
-                <Link
-                  to="/projects"
-                  className="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Projects
-                </Link>
-                <Link
-                  to="/research"
-                  className="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Research
-                </Link>
-                <Link
-                  to="/experience"
-                  className="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Experience
-                </Link>
-                <Link
-                  to="/contact"
-                  className="text-gray-300 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Contact
-                </Link>
+                <NavLink to="/" label="Home" />
+                <NavLink to="/about" label="About" />
+                <NavLink to="/projects" label="Projects" />
+                <NavLink to="/research" label="Research" />
+                <NavLink to="/experience" label="Experience" />
+                <NavLink to="/contact" label="Contact" />
               </div>
             </div>
           </div>
-          
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <DarkModeToggle />
-            
-            <div className="-mr-2 flex md:hidden">
+            <div className="-mr-2 flex md:hidden ml-3">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-secondary dark:bg-dark-secondary inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-accent dark:hover:bg-dark-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-secondary dark:hover:bg-dark-secondary focus:outline-none"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -93,49 +61,13 @@ const Navbar: React.FC = () => {
       >
         {() => (
           <div className="md:hidden" id="mobile-menu">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-primary">
-              <Link
-                to="/"
-                className="text-gray-300 hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                to="/about"
-                className="text-gray-300 hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                to="/projects"
-                className="text-gray-300 hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                Projects
-              </Link>
-              <Link
-                to="/research"
-                className="text-gray-300 hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                Research
-              </Link>
-              <Link
-                to="/experience"
-                className="text-gray-300 hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                Experience
-              </Link>
-              <Link
-                to="/contact"
-                className="text-gray-300 hover:bg-secondary hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                Contact
-              </Link>
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-primary dark:bg-dark-primary">
+              <MobileNavLink to="/" label="Home" />
+              <MobileNavLink to="/about" label="About" />
+              <MobileNavLink to="/projects" label="Projects" />
+              <MobileNavLink to="/research" label="Research" />
+              <MobileNavLink to="/experience" label="Experience" />
+              <MobileNavLink to="/contact" label="Contact" />
             </div>
           </div>
         )}
@@ -143,5 +75,27 @@ const Navbar: React.FC = () => {
     </nav>
   );
 };
+
+// Extracted NavLink component for better maintainability
+const NavLink: React.FC<{ to: string; label: string }> = ({ to, label }) => (
+  <Link
+    to={to}
+    className="text-gray-100 hover:bg-secondary hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 
+      dark:text-gray-50 dark:hover:bg-dark-secondary dark:hover:text-white"
+  >
+    {label}
+  </Link>
+);
+
+// Extracted MobileNavLink component for better maintainability
+const MobileNavLink: React.FC<{ to: string; label: string }> = ({ to, label }) => (
+  <Link
+    to={to}
+    className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:bg-secondary hover:text-white
+      dark:text-gray-50 dark:hover:bg-dark-secondary dark:hover:text-white transition-colors duration-200"
+  >
+    {label}
+  </Link>
+);
 
 export default Navbar; 
