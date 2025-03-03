@@ -1,0 +1,5 @@
+Please replace this file with your actual profile photo.
+Recommended size: 500x500 pixels or larger, with a square aspect ratio.
+The image should be named "profile-photo.jpg" and placed in this directory.
+
+This image will be used in the hero section of your portfolio website. 
